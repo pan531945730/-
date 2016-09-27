@@ -365,7 +365,50 @@ overflow 非 visible
 
 > 如果能通过合理的 HTML 结构或使用其他的 CSS 定义达到理想的样式，则不应该使用 hack 手段解决问题。通常 hack 会导致维护成本的增
 
+* [强制]禁止使用 Expression。
 * [强制]`CSS Sprite`
 
 >`CSS Sprite`是一种将数个图片合成为一张大图的技术（既可以是背景图也可以是前景图），然后通过偏移来进行图像位置选取；
   `CSS Sprite`可以减少http请求，提高页面访问速度。
+
+## [建议]语义，统一语义理解和命名
+|语义     |命名     |简写    |
+|--------|--------|--------|
+|文档     |doc     |doc     |
+|头部     |head    |hd      |
+|主体     |body    |bd      |
+|尾部     |foot    |ft      |
+|主栏     |main    |mn      |
+|主栏子容器|mainc   |mnc     |
+|侧栏     |side    |sd      |
+|侧栏子容器|sidec   |sdc     |
+|盒容器   |wrap/box|wrap/box|
+|导航     |nav     |nav     |
+|子导航   |subnav   |snav    |
+|面包屑   |crumb    |crm     |
+|菜单     |menu     |menu    |
+|选项卡    |tab     |tab     |
+|标题区    |head/title|hd/tt |
+|内容区    |body/content|bd/ct|
+|列表     |list     |lst     |
+|表格     |table    |tb     |
+|表单     |form     |fm     |
+|热点     |hot      |hot     |
+|排行     |top      |top     |
+|登录     |login    |log     |
+|标志     |logo     |logo    |
+|`广告`会被某些浏览器屏蔽掉|`advertise`|`ad`|
+|搜索     |search   |sch     |
+|幻灯     |slide    |sld     |
+|提示     |tips     |tips    |
+|帮助     |help     |help    |
+|新闻     |news     |news    |
+|下载     |download |dld     |
+|注册     |regist   |reg     |
+|投票     |vote     |vote    |
+|版权     |copyright|cprt    |
+|结果     |result   |rst     |
+|标题     |title    |tt      |
+|按钮     |button   |btn     |
+|输入     |input    |ipt     |
+

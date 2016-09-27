@@ -97,7 +97,6 @@ magicBook.push('Expelliarmus');
 
 [浅拷贝][4]：由于对象和数组在赋值的时候都是引用传递，赋值的时候只是传递一个指针(见1.类型)，浅拷贝的数组中的对象依旧是引用。
 
-[深拷贝][3](deep copy): 可以使用jquery的```jQuery.extend``` 或者 npm的 ```deep-copy``` 方法等。
 
 [3]: http://jerryzou.com/posts/dive-into-deep-clone-in-javascript/
 
@@ -570,49 +569,15 @@ function isAnimal(){
 
 15.3 [建议] 使用帕斯卡式命名构造函数或类，如Animal、People等
 
-15.4 [建议] touch端使用`Function#bind`来代替```var self = this```
-PC端因为ie8及以下不支持，不建议使用
-
-```js
-// good
-function () {
-  return function () {
-    console.log(this);
-  }.bind(this);
-}
-```
-
-15.5 [建议] 函数表达式尽量给函数命名，有利于做堆栈轨迹，方便调试   [更多内容][2]
-```js
-// good
-// 函数命名表达式
-var log = function log(msg){
-  console.log(msg);
-}
-
-// good
-CheckBox.prototype.getValue = function getValue(){
-  return this.value;
-}
-```
 
 
-15.6 [建议] 在模块开发中，抛出的类名应与文件名保持一致（即一个文件一个模块）
+15.4 [建议] 在模块开发中，抛出的类名应与文件名保持一致（即一个文件一个模块）
 ```js
 // good
 var CheckBox = require('./CheckBox')
 ```
 
-15.7 [建议] 构造函数中，关于私有变量的命名以_开头。
-在javascript中，并没有私有变量这一说，一般通过闭包来封装变量模拟私有变量。但在实际开发往往直接写构造函数，变量都是公开的。
-私有变量可以以_打头，操作私有变量时必须定义操作方法（get  set）。如果实际开发中的确需要保护变量，请以闭包形式实现。
-```js
-function Queue(list){
-  this._list = list;
-}
-```
 
-15.8 [强制] 常量必须全部大写，多个单词以下划线分隔
 
 ### 16.构造函数
 16.1 [建议] 给对象原型分配方法时，不要覆写原型链
@@ -640,38 +605,15 @@ Checkbox.prototype.setValue = function setValue(val){
 Objext.prototype.toString = function(){...}
 ```
 
-16.3 [建议] 方法返回this引用可以实现链式调用
-
 
 ### 17.模块
 17.1 [建议] 模块的名称应尽量与文件名保持一致
 
 17.2 [建议] 以IIFE（立即执行函数）封装模块，并在IIFE前后添加分号
 
-17.3 [建议] 以严格模式编写代码  `use strict`
 
-17.4 [建议] 增加一个noConflict函数，可以防止该模块与其他模块同名冲突（和Jquery同一思想，释放对$的控制）
-```js
-// FancyInput.js
-;(function (global) {
-  'use strict';
-  var previousFancyInput = global.FancyInput;
-  function FancyInput(options) {
-    this.options = options || {};
-  }
-  FancyInput.noConflict = function noConflict() {
-    global.FancyInput = previousFancyInput;
-    return FancyInput;
-  };
-  global.FancyInput = FancyInput;
-})(this);
-
-// noConflict用法
-var OtherName = FancyInput.noConflict();
-```
-
-### 18.jQuery
-18.1 [建议] 使用$作为存储jQuery对象的变量名前缀
+### 18.Zepto
+18.1 [建议] 使用$作为存储Zepto对象的变量名前缀
 ```js
 // good
 var $sideBar = $('.sidebar');
@@ -679,6 +621,3 @@ var $sideBar = $('.sidebar');
 
 18.2 [建议] 缓存jQuery查询
 
-
-  [1]: https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Reserved_Words
-  [2]: http://www.cnblogs.com/TomXu/archive/2011/12/29/2290308.html
